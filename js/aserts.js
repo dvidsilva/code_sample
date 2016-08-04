@@ -11,5 +11,7 @@
     Utils.request('/string', {fake: true, sample: 'a'}).then(function (response) {
         console.assert(response !== 'a', {msg: 'Utils.requests failed to return a given fake response'});
     });
+    console.assert(typeof Utils.transformResponse('{}') === 'object', 'Failed to transform response text to object');
+    console.assert(typeof Utils.transformResponse({}) === 'object', 'Transform response failed to return object when given an object');
 })();
 

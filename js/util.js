@@ -1,14 +1,20 @@
+/*
+* Utils holds a bunch of functions that will be used across the application to perform common tasks.
+*
+* _base is the constructor that will hold utility functions and information
+* that will be used across the application
+*
+* Request: the requests function executes an xhr with a given url and set of options, it returns a function
+* that receives two arguments, if given, those functions will be executed upon success
+* or failure of the request with the responseText or full response acordingly */
 var Utils;
 (function () {
     console.debug('initializing Utils');
-    /* _base is the constructor that will hold utility functions and information
-     * that will be used across the application */
     function _base() {}
+    _base.prototype.request = request;
+    _base.prototype.transformResponse = transformResponse;
 
-    /* the requests function executes an xhr with a given url and set of options, it returns a function
-     * that receives two arguments, if given, those functions will be executed upon success 
-     * or failure of the request */
-    _base.prototype.request = function (url, options) {
+    function request(url, options) {
         var result,
             self = {};
         options = options || {};
@@ -36,7 +42,7 @@ var Utils;
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     if (typeof self.success === 'function') {
-                        self.success(xhr.responseText);
+                        self.success(transformResponse(xhr.responseText));
                     }
                 }
                 if (typeof self.fail === 'function') {
@@ -50,7 +56,22 @@ var Utils;
         };
         xhr.send();
         return result;
-    };
+    }
+
+    function transformResponse(responseText) {
+        var result;
+        if (typeof responseText === 'object') {
+            return responseText;
+        }
+        if (typeof responseText === 'string') {
+            try {
+                return JSON.parse(responseText);
+            } catch (e) {
+                return;
+            }
+        }
+    }
 
     Utils = new _base();
 })();
+
