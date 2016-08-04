@@ -11,8 +11,11 @@ var Utils;
 (function () {
     console.debug('initializing Utils');
     function _base() {}
+    var template_cache = {};
     _base.prototype.request = request;
     _base.prototype.transformResponse = transformResponse;
+    _base.prototype.getTemplateString = getTemplateString;
+    _base.prototype.parseTemplate = parseTemplate;
 
     function request(url, options) {
         var result,
@@ -70,6 +73,25 @@ var Utils;
                 return;
             }
         }
+    }
+
+    function getTemplateString(_id) {
+        var elem, temp_str;
+        if (template_cache[_id] !== undefined) {
+            return template_cache[_id];
+        }
+        elem = document.getElementById(_id);
+        temp_str = elem !== null ? elem.innerHTML: '';
+        template_cache[_id] = temp_str;
+        return temp_str;
+    }
+
+    function parseTemplate(_id, content, str) {
+        var template_string = _id ? getTemplateString(_id) : (str ? str : '');
+        template_string = template_string.replace(/{{(\w+)}}/g, function(_,k){
+          return content[k];
+        });
+        return template_string;
     }
 
     Utils = new _base();

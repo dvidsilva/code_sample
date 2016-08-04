@@ -13,5 +13,8 @@
     });
     console.assert(typeof Utils.transformResponse('{}') === 'object', 'Failed to transform response text to object');
     console.assert(typeof Utils.transformResponse({}) === 'object', 'Transform response failed to return object when given an object');
+    console.assert(Utils.getTemplateString() === '', 'getTemplateString didnt return empty string for an invalid id');
+    console.assert(Utils.parseTemplate(null, {name: 'david'}, '{{name}}') === 'david', 'parsetemplate failed to replace keys with values');
 })();
+
 
