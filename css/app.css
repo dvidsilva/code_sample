@@ -1,0 +1,50 @@
+/*
+  color pallete: http://www.colourlovers.com/palette/3616733/slack.com
+  green: 3EB890
+  blue: 70CADB
+  yellow: E8A723
+  pink: E01765
+  brown: 443642
+*/
+.bg_pink {
+  background: #E01765;
+}
+.bg_brown {
+  background: #443642;
+}
+.nomargin {
+  margin: 0;
+}
+.nopadding {
+  padding: 0;
+}
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+}
+header {
+  padding: 10px 20px;
+  color: white;
+}
