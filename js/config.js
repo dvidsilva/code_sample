@@ -1,6 +1,6 @@
 var CONFIG;
 (function () {
     CONFIG = {};
-    CONFIG.GOOGLE_IMAGE_SEARCH_API_KEY = 'AIzaSyBYKc8li8xPusN4hMSR5i2hCLKN-yFnYB4';
-    CONFIG.GOOGLE_IMAGE_SEARCH_ENDPOINT = '';
+    CONFIG.IMGUR_API_KEY = '';
+    CONFIG.IMGUR_API_ENDPOINT = 'https://api.imgur.com/3/gallery/';
 })();
