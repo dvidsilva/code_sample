@@ -6,19 +6,29 @@
         <link rel="stylesheet" href="./css/app.css">
         <link rel="stylesheet" href="./css/normalize.css">
     </head>
-    <body class="nomargin nopadding">
+    <body class="nomargin">
         <header class="bg_pink">
             <h1>Imgur SlimViewer</h1>
         </header>
         <main>
+            <div id="gallery-container" class="clearfix"></div>
         </main>
         <footer class="bg_brown">
             <p>&copy; 2016</p>
         </footer>
-        <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-        <script src="./js/config.js"></script>
-        <script src="./js/util.js"></script>
-        <script src="./js/aserts.js"></script>
-        <script src="./js/app.js"></script>
+
+        <script id="picture-frame" type="text/template">
+            <div class='picture_frame'>
+                <div class='img' style='background-image: url({{img_url}});'></div>
+                <p class='title'>
+                    <a href="http://imgur.com/gallery/{{id}}" target="_blank"><strong>{{title}}</strong>
+                </p>
+            </div>
+        </script>
+
+        <script src="./js/config.js" type="text/javascript"></script>
+        <script src="./js/util.js" type="text/javascript"></script>
+        <script src="./js/aserts.js" type="text/javascript"></script>
+        <script src="./js/app.js" type="text/javascript"></script>
     </body>
 </html>
