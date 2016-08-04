@@ -20,6 +20,7 @@ var Utils;
 
     function request(url, options) {
         var result,
+            xhr,
             self = {};
         options = options || {};
         if (!url || typeof url !== 'string') {
@@ -39,21 +40,20 @@ var Utils;
             });
             return result;
         }
-        var args = Array.prototype.slice.call(arguments);
-        var xhr = new XMLHttpRequest();
+        xhr = new XMLHttpRequest();
         xhr.open((options.method || 'GET'), url, true);
+        if (options.headers && isArray(options.headers)) {
+            for (var i = 0; i < options.headers.length; i++) {
+                xhr.setRequestHeader(options.headers[i].name, options.headers[i].val);
+            }
+        }
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     if (typeof self.success === 'function') {
-                        self.success(transformResponse(xhr.responseText));
+                        return self.success(transformResponse(xhr.responseText));
                     }
-                }
-                if (typeof self.fail === 'function') {
-                    self.fail(xhr);
-                }
-            } else {
-                if (typeof self.fail === 'function') {
+                } else if (typeof self.fail === 'function') {
                     self.fail(xhr);
                 }
             }
