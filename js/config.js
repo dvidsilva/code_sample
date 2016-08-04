@@ -1,0 +1,6 @@
+var CONFIG;
+(function () {
+    CONFIG = {};
+    CONFIG.GOOGLE_IMAGE_SEARCH_API_KEY = 'AIzaSyBYKc8li8xPusN4hMSR5i2hCLKN-yFnYB4';
+    CONFIG.GOOGLE_IMAGE_SEARCH_ENDPOINT = '';
+})();

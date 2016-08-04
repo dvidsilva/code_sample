@@ -14,3 +14,5 @@ This code should have the following:
     * Google Image Search: https://developers.google.com/custom-search/json-api/v1/overview
 * It should run without errors in the latest versions of Chrome, Safari, Firefox and IE.
 
+Experiment the live version [here](http://dvidsilva.com/slack_test/).
+
