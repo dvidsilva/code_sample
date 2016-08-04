@@ -15,6 +15,8 @@
     console.assert(typeof Utils.transformResponse({}) === 'object', 'Transform response failed to return object when given an object');
     console.assert(Utils.getTemplateString() === '', 'getTemplateString didnt return empty string for an invalid id');
     console.assert(Utils.parseTemplate(null, {name: 'david'}, '{{name}}') === 'david', 'parsetemplate failed to replace keys with values');
+    console.assert(Utils.isArray([]) === true, 'failed to verify that array was an array');
+    console.assert(Utils.isArray(null) === false, 'failed to verify that null is not an array');
 })();
 
 

@@ -16,6 +16,7 @@ var Utils;
     _base.prototype.transformResponse = transformResponse;
     _base.prototype.getTemplateString = getTemplateString;
     _base.prototype.parseTemplate = parseTemplate;
+    _base.prototype.isArray = isArray;
 
     function request(url, options) {
         var result,
@@ -92,6 +93,13 @@ var Utils;
           return content[k];
         });
         return template_string;
+    }
+
+    function isArray(arr) {
+        if (typeof Array.isArray === 'function') {
+            return Array.isArray(arr);
+        }
+        return '' + arr !== arr && {}.toString.call(arr) === '[object Array]';
     }
 
     Utils = new _base();
