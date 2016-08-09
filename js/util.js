@@ -102,6 +102,60 @@ var Utils;
         return '' + arr !== arr && {}.toString.call(arr) === '[object Array]';
     }
 
+    if (!Array.prototype.reduce) {
+      Array.prototype.reduce = function(callback) {
+        'use strict';
+        if (this == null) {
+          throw new TypeError('Array.prototype.reduce called on null or undefined');
+        }
+        if (typeof callback !== 'function') {
+          throw new TypeError(callback + ' is not a function');
+        }
+        var t = Object(this), len = t.length >>> 0, k = 0, value;
+        if (arguments.length == 2) {
+          value = arguments[1];
+        } else {
+          while (k < len && !(k in t)) {
+            k++;
+          }
+          if (k >= len) {
+            throw new TypeError('Reduce of empty array with no initial value');
+          }
+          value = t[k++];
+        }
+        for (; k < len; k++) {
+          if (k in t) {
+            value = callback(value, t[k], k, t);
+          }
+        }
+        return value;
+      };
+    }
+
+    if (!Array.prototype.filter) {
+      Array.prototype.filter = function(fun/*, thisArg*/) {
+        'use strict';
+        if (this === void 0 || this === null) {
+          throw new TypeError();
+        }
+        var t = Object(this);
+        var len = t.length >>> 0;
+        if (typeof fun !== 'function') {
+          throw new TypeError();
+        }
+        var res = [];
+        var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+        for (var i = 0; i < len; i++) {
+          if (i in t) {
+            var val = t[i];
+            if (fun.call(thisArg, val, i, t)) {
+              res.push(val);
+            }
+          }
+        }
+        return res;
+      };
+    }
+
     Utils = new _base();
 })();
-
