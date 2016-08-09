@@ -71,6 +71,7 @@ header {
     height: 240px;
     background-position: center center;
     background-size: cover;
+    cursor: pointer;
 }
 .picture_frame .title {
     margin: 5px 10px 0;
@@ -79,4 +80,69 @@ header {
     text-decoration: none;
     color: #E01765;
     text-transform: capitalize;
+}
+.black-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 2;
+}
+.image-full-size {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 3;
+}
+.image-full-size .image-container {
+  background-image: url(http://imgur.com/7p7txfO.jpg);
+  background-position: center center;
+  position: fixed;
+  bottom: 4rem;
+  right: 20px;
+  left: 20px;
+  top: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.image-full-size .title {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  height: 4rem;
+  padding: 1rem;
+  text-transform: capitalize;
+}
+.close-img-modal {
+  color: white;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.change-image-arrow {
+  position: fixed;
+  bottom: 40vh;
+  top: 40vh;
+  width: 50px;
+  line-height: 20vh;
+  color: white;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.change-image-arrow:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+.change-image-arrow.previous {
+  left: 0;
+}
+.change-image-arrow.next {
+  right: 0;
 }
