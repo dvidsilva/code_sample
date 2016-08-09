@@ -8,7 +8,7 @@
             {headers: [{name: 'Authorization', val: 'Client-ID 747f78a06dd424e'}]})
         .then(function (data) {
               pictures = data.data;
-              displayPictures(8);
+              displayPictures(20);
         }, function (response){
             pictures = [];
             throw response.responseText;
