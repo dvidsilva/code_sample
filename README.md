@@ -16,3 +16,4 @@ This code should have the following:
 
 Experiment the live version [here](http://dvidsilva.com/slack_test/).
 
+It can be run locally with any static webserver from the root directory. I use and recommend [nws](https://www.npmjs.com/package/nws).
