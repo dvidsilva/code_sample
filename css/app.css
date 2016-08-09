@@ -54,7 +54,7 @@ header {
 }
 #gallery-container {
   max-width: 1200px;
-  margin: 20px 10px;
+  margin: 20px auto;
 }
 .picture_frame {
     width: 30%;
@@ -120,7 +120,7 @@ header {
   padding: 1rem;
   text-transform: capitalize;
 }
-.close-img-modal {
+.close-image-modal {
   color: white;
   position: fixed;
   top: 30px;
