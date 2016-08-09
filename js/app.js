@@ -57,7 +57,7 @@
     });
 
     document.querySelector('body').addEventListener('click', function(event) {
-      if (event.target.className.match('close-img-modal') !== null) {
+      if (event.target.className.match('close-image-modal') !== null) {
           document.querySelector('#modal-container').innerHTML = '';
       }
     });
