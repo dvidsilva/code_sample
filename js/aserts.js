@@ -1,7 +1,8 @@
 (function () {
     console.debug('Running basic asertions');
     console.assert(Utils !== undefined, {msg: 'Utils is undefined'});
-    console.assert(Utils.constructor.name  === '_base', {msg: 'Utils is not an instance of _base', type: Utils.constructor.name});
+    var constructor_name = Utils.constructor.name ? (Utils.constructor.name === '_base') : (Utils.constructor.toString().match('_base') !== null);
+    console.assert(constructor_name, {msg: 'Utils is not an instance of _base', type: Utils.constructor.name});
     try {
         var a = Utils.request();
     } catch (e) {
@@ -17,6 +18,7 @@
     console.assert(Utils.parseTemplate(null, {name: 'david'}, '{{name}}') === 'david', 'parsetemplate failed to replace keys with values');
     console.assert(Utils.isArray([]) === true, 'failed to verify that array was an array');
     console.assert(Utils.isArray(null) === false, 'failed to verify that null is not an array');
+    console.assert(typeof [].reduce === 'function', 'function reduce is available in arrays');
+    console.assert(typeof [].filter === 'function', 'function filter is available in arrays');
+    console.assert(typeof [].map === 'function', 'function map is available in arrays');
 })();
-
-
